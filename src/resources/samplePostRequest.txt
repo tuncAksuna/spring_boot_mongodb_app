@@ -1,0 +1,27 @@
+{
+    "firstName": "ali",
+    "lastName": "veli",
+    "height": 190,
+    "weight": 70,
+    "phones": [
+        {
+            "phoneName": "ev",
+            "phoneNumber": "82734"
+        },
+        {
+            "phoneName": "ofis",
+            "phoneNumber": "43983058"
+        }
+    ],
+    "comments": [
+        {
+            "desc": "Lorem ipsum dolor",
+            "like": 3
+        },
+        {
+            "desc": "Ýpsum dolor sit amet ",
+            "like": 5
+        }
+
+    ]
+}
