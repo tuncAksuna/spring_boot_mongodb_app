@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  api:
+    image: tuncode/mmv3-mongodb:0.0.1-SNAPSHOT
+    container_name: "sboot-mongodb-api"
+    mem_limit: 700m
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    networks:
+      sboot-mongoapp:
+    depends_on:
+      - mongodb
+    environment:
+      SERVER_PORT: 8080
+      SPRING_DATA_MONGODB_HOST: mongodb
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: innova
+
+  mongodb:
+    image: mongo:6.0.5
+    container_name: "sboot-mongodb-db"
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+    - "./data:/data/db"
+    networks:
+      - sboot-mongoapp
+
+
+networks:
+  sboot-mongoapp:
