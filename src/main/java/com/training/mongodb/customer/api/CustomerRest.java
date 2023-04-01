@@ -73,4 +73,9 @@ public class CustomerRest {
         return customerMongoDao.aggregateWithGroup();
     }
 
+    @GetMapping("/getCustomerCount")
+    public List<?> getCustomerCount(){
+        return customerMongoDao.aggregateGetCustomerCount();
+    }
+
 }

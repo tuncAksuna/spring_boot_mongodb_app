@@ -35,4 +35,10 @@ public interface ICustomerMongoDao extends MongoRepository<Customer, String> {
     })
     List<GroupedHeight> aggregateWithGroup();
 
+    @Aggregation(pipeline = {
+            "{$match:{_id:{$exists:'true',$ne:null}}}",
+            "{$group:{_id:null,count:{$sum:1}}}",
+            "{$project:{_id:0}}"
+    })
+    List<?> aggregateGetCustomerCount();
 }
